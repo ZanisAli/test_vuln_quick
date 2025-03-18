@@ -18,5 +18,21 @@ public class VulnerableFunctions {
         return new String(Files.readAllBytes(Paths.get(path)));
    }
 
+        public void deleteUser(String userId) {
+        if (userId != null && !userId.isEmpty()) {
+            String query = "DELETE FROM users WHERE id = '" + userId + "';";
+            database.execute(query);
+        }
+    }
+
+
+    public void readFile(String fileName) {
+        if (fileName != null && !fileName.isEmpty()) {
+            String filePath = "/var/www/files/" + fileName;
+            File file = new File(filePath);
+            // Read file content (omitted for brevity)
+        }
+    }
+
 
 }
