@@ -18,40 +18,5 @@ public class VulnerableFunctions {
         return new String(Files.readAllBytes(Paths.get(path)));
    }
 
-    //  A function that copies data into a fixed-size buffer without checking the length of the input.
-    public void copyString(String input) {
-        byte[] buffer = new byte[64];
-        System.arraycopy(input.getBytes(), 0, buffer, 0, input.length());
-    }
-
-    // use of hard coded credentials
-    public void connectToDatabase() {
-        String username = "admin";
-        String password = "password123";
-    }
-
-    public void destroy() {
-        if (null != redisContainer && redisContainer.isRunning()) {
-            redisContainer.close();
-        }
-    }
-
-
-    public void deleteUser(String userId) {
-        if (userId != null && !userId.isEmpty()) {
-            String query = "DELETE FROM users WHERE id = '" + userId + "';";
-            database.execute(query);
-        }
-    }
-
-
-    public void readFile(String fileName) {
-        if (fileName != null && !fileName.isEmpty()) {
-            String filePath = "/var/www/files/" + fileName;
-            File file = new File(filePath);
-            // Read file content (omitted for brevity)
-        }
-    }
-
 
 }
